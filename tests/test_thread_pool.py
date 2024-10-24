@@ -53,7 +53,7 @@ def test_thread_pool_with_mixed_tasks():
 
     # Enqueue short and long tasks
     pool.enqueue(lambda: complex_task(1, result))  # Long task
-    pool.enqueue(lambda: time.sleep(0.1))          # Short task
+    pool.enqueue(lambda: time.sleep(0.1))  # Short task
     pool.enqueue(lambda: complex_task(2, result))  # Another long task
 
     pool.dispose()
@@ -80,4 +80,6 @@ def test_thread_pool_multiple_threads_working():
 
     # Ensure that tasks took roughly the expected amount of time
     assert len(result) == 4
-    assert (end_time - start_time) < 1  # Should complete in under 1 second with 4 threads
+    assert (
+        end_time - start_time
+    ) < 1  # Should complete in under 1 second with 4 threads
