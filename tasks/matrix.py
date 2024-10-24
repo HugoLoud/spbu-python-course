@@ -69,7 +69,7 @@ def product_matrix(
 def transponiruem_matrix(matrix: Optional[List[List[int]]]) -> List[List[int]]:
     ## Транспонирует матрицу (меняет строки и столбцы местами).
     ## Если матрица пуста или равна None, возвращает пустой список.
-    
+
     if matrix is None or len(matrix) == 0 or len(matrix[0]) == 0:
         return []
 
