@@ -1,6 +1,7 @@
 import pytest
 from vector import scalar_product, length_vec, cos_ab
 
+
 def test_scalar_product():
     assert scalar_product([1, 2], [3, 4]) == 11
     assert scalar_product([-1, -2], [3, 4]) == -11
@@ -10,6 +11,7 @@ def test_scalar_product():
     with pytest.raises(ValueError):
         scalar_product([1, 2], [3])
 
+
 def test_length_vec():
     assert length_vec([0, 0], [3, 4]) == 5
     assert length_vec([1, 1], [4, 5]) == 5
@@ -18,6 +20,7 @@ def test_length_vec():
         length_vec(None, [1, 2])
     with pytest.raises(ValueError):
         length_vec([1, 2], [3])
+
 
 def test_cos_ab():
     assert cos_ab([1, 0], [0, 1]) == 0
