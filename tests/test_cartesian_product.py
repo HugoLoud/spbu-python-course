@@ -1,4 +1,5 @@
-from project.cartesian_product import cartesian_product_sum
+import pytest
+from cartesian_product import cartesian_product_sum
 
 
 def test_cartesian_product_complex_case():
