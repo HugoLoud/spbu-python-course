@@ -42,7 +42,7 @@ def test_cartesian_product_with_large_list_sizes():
         [i for i in range(100, 201, 50)],
         [j for j in range(500, 1001, 250)],
         [k for k in range(2000, 4001, 1000)],
-        ]
+    ]
     result = cartesian_product_sum(lists)
     # This will produce a large Cartesian product with 3 lists of different sizes.
     # We expect it to handle the increased computational load.
