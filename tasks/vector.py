@@ -1,7 +1,9 @@
 from typing import List, Optional
 
 
-def scalar_product(a: Optional[List[float]], b: Optional[List[float]]) -> float:
+def scalar_product(
+    a: Optional[List[float]], b: Optional[List[float]]
+) -> float:
     """Вычисляет скалярное произведение двух векторов произвольной размерности."""
     # Проверяем, что векторы не равны None
     if a is None or b is None:
