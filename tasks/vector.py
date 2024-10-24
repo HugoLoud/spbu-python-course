@@ -14,6 +14,7 @@ def scalar_product(a: Optional[List[float]], b: Optional[List[float]]) -> float:
     # Возвращаем сумму произведений соответствующих элементов
     return sum(a[i] * b[i] for i in range(len(a)))
 
+
 def length_vec(a: Optional[List[float]], b: Optional[List[float]]) -> float:
     """Вычисляет длину вектора между двумя точками a и b произвольной размерности."""
     # Проверяем, что обе точки не равны None
@@ -26,6 +27,7 @@ def length_vec(a: Optional[List[float]], b: Optional[List[float]]) -> float:
 
     # Вычисляем длину вектора, используя формулу расстояния между двумя точками
     return (sum((b[i] - a[i]) ** 2 for i in range(len(a)))) ** 0.5
+
 
 def cos_ab(a: Optional[List[float]], b: Optional[List[float]]) -> float:
     """Вычисляет косинус угла между векторами a и b произвольной размерности."""
@@ -41,12 +43,14 @@ def cos_ab(a: Optional[List[float]], b: Optional[List[float]]) -> float:
     dot_product = scalar_product(a, b)
 
     # Вычисляем длины векторов a и b
-    magnitude_a = (sum(coord ** 2 for coord in a)) ** 0.5
-    magnitude_b = (sum(coord ** 2 for coord in b)) ** 0.5
+    magnitude_a = (sum(coord**2 for coord in a)) ** 0.5
+    magnitude_b = (sum(coord**2 for coord in b)) ** 0.5
 
     # Проверяем, что длины векторов не равны нулю
     if magnitude_a == 0 or magnitude_b == 0:
-        raise ValueError("Длина одного из векторов равна нулю, невозможно вычислить косинус угла")
+        raise ValueError(
+            "Длина одного из векторов равна нулю, невозможно вычислить косинус угла"
+        )
 
     # Вычисляем и возвращаем косинус угла между векторами
     return dot_product / (magnitude_a * magnitude_b)
