@@ -5,7 +5,7 @@ from matrix import (
     get_cols_matrix,
     sum_matrix,
     product_matrix,
-    transponiruem_matrix
+    transponiruem_matrix,
 )
 
 def test_get_row_matrix():
