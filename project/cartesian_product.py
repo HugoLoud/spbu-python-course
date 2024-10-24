@@ -7,13 +7,13 @@ def cartesian_product_sum(lists: List[List[int]]) -> int:
     """
     Calculates the sum of the Cartesian product of the given lists using ThreadPoolExecutor.
 
-    This function generates the Cartesian product of the given integer lists and computes 
-    the sum of all elements in each tuple of the product. The computation is parallelized 
+    This function generates the Cartesian product of the given integer lists and computes
+    the sum of all elements in each tuple of the product. The computation is parallelized
     using a thread pool.
 
     Args:
         lists (List[List[int]]): A list of integer lists for which the Cartesian product will be computed.
-    
+
     Returns:
         int: The total sum of all elements in the Cartesian product.
     
