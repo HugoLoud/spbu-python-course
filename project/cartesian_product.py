@@ -16,7 +16,7 @@ def cartesian_product_sum(lists: List[List[int]]) -> int:
 
     Returns:
         int: The total sum of all elements in the Cartesian product.
-    
+
     Example:
         cartesian_product_sum([[1, 2], [3, 4]]) will compute the Cartesian product:
         (1,3), (1,4), (2,3), (2,4) and return 20, because (1+3) + (1+4) + (2+3) + (2+4) = 20.
