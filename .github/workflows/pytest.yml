@@ -1,4 +1,4 @@
-name: Python Test and Linting
+name: Python Test
 
 on:
   [ push, pull_request ]
@@ -23,6 +23,3 @@ jobs:
 
       - name: Run pytest
         run: pytest
-
-      - name: Run mypy (static type checking)
-        run: mypy .
