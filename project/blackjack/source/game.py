@@ -2,6 +2,7 @@ from typing import List, Dict
 from deck import Deck
 from player import AggressiveBot, ConservativeBot, RandomBot, Dealer, Player
 
+
 class Game:
     """Основной класс игры, управляет раундами, участниками и результатами."""
 
@@ -36,7 +37,9 @@ class Game:
 
         for player in self.players:
             player.play_turn(self.deck)
-            print(f"{player.__class__.__name__} взял: {player.show_hand()} | Очки: {player.score}")
+            print(
+                f"{player.__class__.__name__} взял: {player.show_hand()} | Очки: {player.score}"
+            )
         
         self.dealer.play_turn(self.deck)
         print(f"Крупье взял: {self.dealer.show_hand()} | Очки: {self.dealer.score}")
@@ -49,7 +52,9 @@ class Game:
         bets: Dict[Player, int] = {}
         for player in self.players:
             bets[player] = player.place_bet()
-            print(f"{player.__class__.__name__} поставил {player.current_bet} | Баланс: {player.balance}")
+            print(
+                f"{player.__class__.__name__} поставил {player.current_bet} | Баланс: {player.balance}"
+            )
         return bets
 
     def resolve_round(self, bets: Dict[Player, int]):
@@ -63,10 +68,14 @@ class Game:
             elif dealer_bust or (player.score > dealer_score):
                 winnings = bet * 2
                 player.win_bet(winnings)
-                print(f"{player.__class__.__name__} победил! Выигрыш: {winnings} | Баланс: {player.balance}")
+                print(
+                    f"{player.__class__.__name__} победил! Выигрыш: {winnings} | Баланс: {player.balance}"
+                )
             elif player.score == dealer_score:
                 player.tie_bet()
-                print(f"{player.__class__.__name__} ничья! Возврат ставки: {bet} | Баланс: {player.balance}")
+                print(
+                    f"{player.__class__.__name__} ничья! Возврат ставки: {bet} | Баланс: {player.balance}"
+                )
             else:
                 print(f"{player.__class__.__name__} проиграл! Потерял {bet}")
 
