@@ -1,6 +1,7 @@
 class Suit:
 
     """Определяет масти карт."""
+
     HEARTS = "Hearts"
     DIAMONDS = "Diamonds"
     CLUBS = "Clubs"
