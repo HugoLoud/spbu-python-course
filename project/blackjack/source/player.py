@@ -3,6 +3,7 @@ import random
 from deck import Deck
 from card import Card, Rank
 
+
 class Player(ABC):
     """Базовый класс для игроков, включающий баланс, ставку и подсчёт очков."""
 
@@ -21,7 +22,7 @@ class Player(ABC):
             max_bet = max(10, (self.balance * 15) // 100)  # максимум 15% баланса
             self.current_bet = random.randint(min_bet // 10, max_bet // 10) * 10
             self.current_bet = min(self.current_bet, self.balance)
-        
+
         self.balance -= self.current_bet
         return self.current_bet
 
@@ -95,7 +96,9 @@ class RandomBot(Player):
     """Бот со случайной стратегией: иногда останавливается, иногда берет карты, если очки от 15 до 18."""
 
     def play_turn(self, deck: Deck):
-        while self.calculate_score() < 15 or (self.score <= 18 and random.choice([True, False])):
+        while self.calculate_score() < 15 or (
+            self.score <= 18 and random.choice([True, False])
+        ):
             self.draw_card(deck)
 
 
