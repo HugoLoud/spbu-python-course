@@ -1,7 +1,7 @@
 from abc import ABC, abstractmethod
 import random
-from deck import Deck
-from card import Card, Rank
+from project.blackjack.source.deck import Deck
+from project.blackjack.source.card import Card, Rank
 
 
 class Player(ABC):
