@@ -1,0 +1,95 @@
+@startuml
+
+class Suit {
+    +HEARTS: str
+    +DIAMONDS: str
+    +CLUBS: str
+    +SPADES: str
+}
+
+class Rank {
+    +ACE: int
+    +TWO: int
+    +THREE: int
+    +FOUR: int
+    +FIVE: int
+    +SIX: int
+    +SEVEN: int
+    +EIGHT: int
+    +NINE: int
+    +TEN: int
+    +JACK: int
+    +QUEEN: int
+    +KING: int
+}
+
+class Card {
+    -suit: str
+    -rank: int
+    +get_card_value(): int
+}
+
+class Deck {
+    -cards: List<Card>
+    +__init__()
+    +reset_deck()
+    +shuffle_deck()
+    +draw_card(): Card
+}
+
+abstract class Player {
+    -hand: List<Card>
+    -score: int
+    -balance: int
+    -current_bet: int
+    +place_bet() -> int
+    +draw_card(deck: Deck)
+    +calculate_score() -> int
+    +reset_hand()
+    +show_hand() -> List[Tuple[str, int]]
+    +win_bet(winnings: int)
+    +tie_bet()
+    +play_turn(deck: Deck)
+}
+
+class AggressiveBot {
+    +play_turn(deck: Deck)
+}
+
+class ConservativeBot {
+    +play_turn(deck: Deck)
+}
+
+class RandomBot {
+    +play_turn(deck: Deck)
+}
+
+class Dealer {
+    +play_turn(deck: Deck)
+}
+
+class Game {
+    -deck: Deck
+    -players: List<Player>
+    -dealer: Dealer
+    -max_rounds: int
+    -current_round: int
+    +__init__(max_rounds: int = 10)
+    +add_player(player: Player)
+    +start_game()
+    +play_round()
+    +collect_bets() -> Dict[Player, int]
+    +resolve_round(bets: Dict[Player, int])
+    +reset_round()
+}
+
+Deck "1" o-- "*" Card : contains
+Game "1" --> "1" Deck : uses
+Game "1" --> "*" Player : manages
+Game "1" --> "1" Dealer : manages
+Player <|-- AggressiveBot
+Player <|-- ConservativeBot
+Player <|-- RandomBot
+Player <|-- Dealer
+
+@enduml
