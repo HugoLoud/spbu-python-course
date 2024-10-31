@@ -1,0 +1,240 @@
+=== Раунд 1 ===
+AggressiveBot поставил 20 | Баланс: 130
+ConservativeBot поставил 10 | Баланс: 150
+RandomBot поставил 10 | Баланс: 120
+AggressiveBot взял: [('Hearts', 5), ('Hearts', 2), ('Clubs', 5), ('Spades', 5), ('Clubs', 2)] | Очки: 19
+ConservativeBot взял: [('Clubs', 8), ('Clubs', 11)] | Очки: 18
+RandomBot взял: [('Hearts', 11), ('Clubs', 4), ('Diamonds', 5)] | Очки: 19
+Крупье взял: [('Hearts', 13), ('Hearts', 8)] | Очки: 18
+AggressiveBot победил! Выигрыш: 40 | Баланс: 170
+ConservativeBot ничья! Возврат ставки: 10 | Баланс: 160
+RandomBot победил! Выигрыш: 20 | Баланс: 140
+
+=== Раунд 2 ===
+AggressiveBot поставил 20 | Баланс: 150
+ConservativeBot поставил 20 | Баланс: 140
+RandomBot поставил 10 | Баланс: 130
+AggressiveBot взял: [('Diamonds', 6), ('Diamonds', 11), ('Clubs', 6)] | Очки: 22
+ConservativeBot взял: [('Diamonds', 2), ('Spades', 7), ('Hearts', 4), ('Diamonds', 9)] | Очки: 22
+RandomBot взял: [('Diamonds', 10), ('Spades', 10)] | Очки: 20
+Крупье взял: [('Diamonds', 12), ('Spades', 2), ('Clubs', 3), ('Spades', 4)] | Очки: 19
+AggressiveBot перебор! Проиграл 20
+ConservativeBot перебор! Проиграл 20
+RandomBot победил! Выигрыш: 20 | Баланс: 150
+
+=== Раунд 3 ===
+AggressiveBot поставил 20 | Баланс: 130
+ConservativeBot поставил 10 | Баланс: 130
+RandomBot поставил 20 | Баланс: 130
+AggressiveBot взял: [('Diamonds', 7), ('Hearts', 7), ('Spades', 3), ('Spades', 1)] | Очки: 18
+ConservativeBot взял: [('Hearts', 3), ('Spades', 6), ('Hearts', 12)] | Очки: 19
+RandomBot взял: [('Clubs', 12), ('Hearts', 1)] | Очки: 21
+Крупье взял: [('Spades', 9), ('Spades', 13)] | Очки: 19
+AggressiveBot проиграл! Потерял 20
+ConservativeBot ничья! Возврат ставки: 10 | Баланс: 140
+RandomBot победил! Выигрыш: 40 | Баланс: 170
+
+=== Раунд 4 ===
+AggressiveBot поставил 10 | Баланс: 120
+ConservativeBot поставил 10 | Баланс: 130
+RandomBot поставил 10 | Баланс: 160
+AggressiveBot взял: [('Clubs', 10), ('Clubs', 9)] | Очки: 19
+ConservativeBot взял: [('Clubs', 1), ('Hearts', 6)] | Очки: 17
+RandomBot взял: [('Diamonds', 8), ('Clubs', 13)] | Очки: 18
+Крупье взял: [('Hearts', 9), ('Clubs', 7), ('Spades', 8)] | Очки: 24
+AggressiveBot победил! Выигрыш: 20 | Баланс: 140
+ConservativeBot победил! Выигрыш: 20 | Баланс: 150
+RandomBot победил! Выигрыш: 20 | Баланс: 180
+
+=== Раунд 5 ===
+AggressiveBot поставил 20 | Баланс: 120
+ConservativeBot поставил 10 | Баланс: 140
+RandomBot поставил 10 | Баланс: 170
+AggressiveBot взял: [('Hearts', 10), ('Spades', 12)] | Очки: 20
+ConservativeBot взял: [('Diamonds', 3), ('Spades', 11), ('Diamonds', 1), ('Diamonds', 13)] | Очки: 24
+RandomBot взял: [('Diamonds', 4), ('Clubs', 11), ('Diamonds', 5)] | Очки: 19
+Крупье взял: [('Diamonds', 1), ('Spades', 4), ('Clubs', 2)] | Очки: 17
+AggressiveBot победил! Выигрыш: 40 | Баланс: 160
+ConservativeBot перебор! Проиграл 10
+RandomBot победил! Выигрыш: 20 | Баланс: 190
+
+=== Раунд 6 ===
+AggressiveBot поставил 10 | Баланс: 150
+ConservativeBot поставил 20 | Баланс: 120
+RandomBot поставил 20 | Баланс: 170
+AggressiveBot взял: [('Diamonds', 13), ('Diamonds', 8)] | Очки: 18
+ConservativeBot взял: [('Clubs', 8), ('Hearts', 11)] | Очки: 18
+RandomBot взял: [('Hearts', 3), ('Spades', 9), ('Diamonds', 11)] | Очки: 22
+Крупье взял: [('Spades', 13), ('Spades', 12)] | Очки: 20
+AggressiveBot проиграл! Потерял 10
+ConservativeBot проиграл! Потерял 20
+RandomBot перебор! Проиграл 20
+
+=== Раунд 7 ===
+AggressiveBot поставил 20 | Баланс: 130
+ConservativeBot поставил 10 | Баланс: 110
+RandomBot поставил 10 | Баланс: 160
+AggressiveBot взял: [('Spades', 7), ('Hearts', 10), ('Hearts', 7)] | Очки: 24
+ConservativeBot взял: [('Spades', 5), ('Clubs', 13), ('Clubs', 1)] | Очки: 16
+RandomBot взял: [('Diamonds', 9), ('Spades', 8), ('Diamonds', 2)] | Очки: 19
+Крупье взял: [('Diamonds', 10), ('Clubs', 4), ('Spades', 2), ('Hearts', 6)] | Очки: 22
+AggressiveBot перебор! Проиграл 20
+ConservativeBot победил! Выигрыш: 20 | Баланс: 130
+RandomBot победил! Выигрыш: 20 | Баланс: 180
+
+=== Раунд 8 ===
+AggressiveBot поставил 10 | Баланс: 120
+ConservativeBot поставил 10 | Баланс: 120
+RandomBot поставил 10 | Баланс: 170
+AggressiveBot взял: [('Hearts', 12), ('Hearts', 4), ('Clubs', 3), ('Diamonds', 4)] | Очки: 21
+ConservativeBot взял: [('Diamonds', 6), ('Spades', 3), ('Clubs', 6), ('Diamonds', 3)] | Очки: 18
+RandomBot взял: [('Clubs', 9), ('Spades', 1)] | Очки: 20
+Крупье взял: [('Spades', 11), ('Hearts', 5), ('Hearts', 9)] | Очки: 24
+AggressiveBot победил! Выигрыш: 20 | Баланс: 140
+ConservativeBot победил! Выигрыш: 20 | Баланс: 140
+RandomBot победил! Выигрыш: 20 | Баланс: 190
+
+=== Раунд 9 ===
+AggressiveBot поставил 10 | Баланс: 130
+ConservativeBot поставил 20 | Баланс: 120
+RandomBot поставил 10 | Баланс: 180
+AggressiveBot взял: [('Spades', 6), ('Hearts', 1), ('Diamonds', 12), ('Clubs', 10)] | Очки: 27
+ConservativeBot взял: [('Clubs', 12), ('Hearts', 2), ('Clubs', 7)] | Очки: 19
+RandomBot взял: [('Diamonds', 7), ('Hearts', 8), ('Hearts', 13)] | Очки: 25
+Крупье взял: [('Spades', 10), ('Clubs', 5), ('Hearts', 8)] | Очки: 23
+AggressiveBot перебор! Проиграл 10
+ConservativeBot победил! Выигрыш: 40 | Баланс: 160
+RandomBot перебор! Проиграл 10
+
+=== Раунд 10 ===
+AggressiveBot поставил 10 | Баланс: 120
+ConservativeBot поставил 10 | Баланс: 150
+RandomBot поставил 20 | Баланс: 160
+AggressiveBot взял: [('Hearts', 1), ('Hearts', 2), ('Clubs', 8)] | Очки: 21
+ConservativeBot взял: [('Clubs', 12), ('Spades', 7)] | Очки: 17
+RandomBot взял: [('Spades', 2), ('Clubs', 10), ('Spades', 3)] | Очки: 15
+Крупье взял: [('Diamonds', 1), ('Spades', 11)] | Очки: 21
+AggressiveBot ничья! Возврат ставки: 10 | Баланс: 130
+ConservativeBot проиграл! Потерял 10
+RandomBot проиграл! Потерял 20
+MacBook-Air-Sergej:task5 mihail$  cd /Users/mihail/Desktop/python/task5 ; /usr/bin/env /usr/local/bin/python3 /Users/mihail/.vscode/extensions/ms-python.python-2024.2.1/pythonFiles/lib/python/debugpy/adapter/../../debugpy/launcher 61099 -- /Users/mihail/Desktop/python/task5/project/blackjack/example_game.py 
+
+=== Раунд 1 ===
+AggressiveBot поставил 10 | Баланс: 110
+ConservativeBot поставил 20 | Баланс: 170
+RandomBot поставил 10 | Баланс: 130
+AggressiveBot взял: [('Hearts', 3), ('Clubs', 13), ('Diamonds', 3), ('Clubs', 12)] | Очки: 26
+ConservativeBot взял: [('Spades', 3), ('Hearts', 11), ('Spades', 7)] | Очки: 20
+RandomBot взял: [('Diamonds', 9), ('Clubs', 2), ('Spades', 1), ('Spades', 4)] | Очки: 16
+Крупье взял: [('Hearts', 8), ('Clubs', 10)] | Очки: 18
+AggressiveBot перебор! Проиграл 10
+ConservativeBot победил! Выигрыш: 40 | Баланс: 210
+RandomBot проиграл! Потерял 10
+
+=== Раунд 2 ===
+AggressiveBot поставил 10 | Баланс: 100
+ConservativeBot поставил 20 | Баланс: 190
+RandomBot поставил 10 | Баланс: 120
+AggressiveBot взял: [('Diamonds', 5), ('Diamonds', 4), ('Clubs', 1)] | Очки: 20
+ConservativeBot взял: [('Spades', 11), ('Hearts', 10)] | Очки: 20
+RandomBot взял: [('Hearts', 12), ('Hearts', 9)] | Очки: 19
+Крупье взял: [('Hearts', 7), ('Hearts', 13)] | Очки: 17
+AggressiveBot победил! Выигрыш: 20 | Баланс: 120
+ConservativeBot победил! Выигрыш: 40 | Баланс: 230
+RandomBot победил! Выигрыш: 20 | Баланс: 140
+
+=== Раунд 3 ===
+AggressiveBot поставил 10 | Баланс: 110
+ConservativeBot поставил 20 | Баланс: 210
+RandomBot поставил 10 | Баланс: 130
+AggressiveBot взял: [('Clubs', 11), ('Diamonds', 2), ('Spades', 5), ('Hearts', 2)] | Очки: 19
+ConservativeBot взял: [('Diamonds', 1), ('Spades', 12)] | Очки: 21
+RandomBot взял: [('Hearts', 4), ('Spades', 9), ('Clubs', 7)] | Очки: 20
+Крупье взял: [('Spades', 8), ('Spades', 6), ('Diamonds', 8)] | Очки: 22
+AggressiveBot победил! Выигрыш: 20 | Баланс: 130
+ConservativeBot победил! Выигрыш: 40 | Баланс: 250
+RandomBot победил! Выигрыш: 20 | Баланс: 150
+
+=== Раунд 4 ===
+AggressiveBot поставил 10 | Баланс: 120
+ConservativeBot поставил 20 | Баланс: 230
+RandomBot поставил 20 | Баланс: 130
+AggressiveBot взял: [('Clubs', 5), ('Spades', 13), ('Clubs', 3)] | Очки: 18
+ConservativeBot взял: [('Clubs', 4), ('Clubs', 6), ('Diamonds', 12)] | Очки: 20
+RandomBot взял: [('Diamonds', 7), ('Clubs', 9)] | Очки: 16
+Крупье взял: [('Hearts', 6), ('Diamonds', 13), ('Hearts', 1)] | Очки: 17
+AggressiveBot победил! Выигрыш: 20 | Баланс: 140
+ConservativeBot победил! Выигрыш: 40 | Баланс: 270
+RandomBot проиграл! Потерял 20
+
+=== Раунд 5 ===
+AggressiveBot поставил 20 | Баланс: 120
+ConservativeBot поставил 30 | Баланс: 240
+RandomBot поставил 10 | Баланс: 120
+AggressiveBot взял: [('Diamonds', 11), ('Diamonds', 6), ('Spades', 2)] | Очки: 18
+ConservativeBot взял: [('Diamonds', 10), ('Spades', 10)] | Очки: 20
+RandomBot взял: [('Clubs', 8), ('Hearts', 5), ('Hearts', 13)] | Очки: 23
+Крупье взял: [('Hearts', 4), ('Spades', 2), ('Clubs', 9), ('Diamonds', 1), ('Spades', 3)] | Очки: 19
+AggressiveBot проиграл! Потерял 20
+ConservativeBot победил! Выигрыш: 60 | Баланс: 300
+RandomBot перебор! Проиграл 10
+
+=== Раунд 6 ===
+AggressiveBot поставил 10 | Баланс: 110
+ConservativeBot поставил 30 | Баланс: 270
+RandomBot поставил 10 | Баланс: 110
+AggressiveBot взял: [('Clubs', 1), ('Clubs', 13)] | Очки: 21
+ConservativeBot взял: [('Clubs', 12), ('Hearts', 3), ('Diamonds', 9)] | Очки: 22
+RandomBot взял: [('Spades', 9), ('Diamonds', 13)] | Очки: 19
+Крупье взял: [('Clubs', 10), ('Diamonds', 12)] | Очки: 20
+AggressiveBot победил! Выигрыш: 20 | Баланс: 130
+ConservativeBot перебор! Проиграл 30
+RandomBot проиграл! Потерял 10
+
+=== Раунд 7 ===
+AggressiveBot поставил 10 | Баланс: 120
+ConservativeBot поставил 30 | Баланс: 240
+RandomBot поставил 10 | Баланс: 100
+AggressiveBot взял: [('Clubs', 8), ('Hearts', 1)] | Очки: 19
+ConservativeBot взял: [('Clubs', 7), ('Hearts', 11)] | Очки: 17
+RandomBot взял: [('Clubs', 5), ('Diamonds', 7), ('Clubs', 3)] | Очки: 15
+Крупье взял: [('Hearts', 6), ('Spades', 1)] | Очки: 17
+AggressiveBot победил! Выигрыш: 20 | Баланс: 140
+ConservativeBot ничья! Возврат ставки: 30 | Баланс: 270
+RandomBot проиграл! Потерял 10
+
+=== Раунд 8 ===
+AggressiveBot поставил 10 | Баланс: 130
+ConservativeBot поставил 20 | Баланс: 250
+RandomBot поставил 10 | Баланс: 90
+AggressiveBot взял: [('Clubs', 11), ('Spades', 5), ('Diamonds', 6)] | Очки: 21
+ConservativeBot взял: [('Spades', 6), ('Spades', 13)] | Очки: 16
+RandomBot взял: [('Diamonds', 2), ('Spades', 11), ('Diamonds', 4)] | Очки: 16
+Крупье взял: [('Hearts', 8), ('Hearts', 12)] | Очки: 18
+AggressiveBot победил! Выигрыш: 20 | Баланс: 150
+ConservativeBot проиграл! Потерял 20
+RandomBot проиграл! Потерял 10
+
+=== Раунд 9 ===
+AggressiveBot поставил 20 | Баланс: 130
+ConservativeBot поставил 30 | Баланс: 220
+RandomBot поставил 10 | Баланс: 80
+AggressiveBot взял: [('Diamonds', 8), ('Spades', 8), ('Spades', 4)] | Очки: 20
+ConservativeBot взял: [('Diamonds', 11), ('Hearts', 9)] | Очки: 19
+RandomBot взял: [('Clubs', 6), ('Hearts', 5), ('Diamonds', 3), ('Clubs', 4)] | Очки: 18
+Крупье взял: [('Diamonds', 10), ('Spades', 7)] | Очки: 17
+AggressiveBot победил! Выигрыш: 40 | Баланс: 170
+ConservativeBot победил! Выигрыш: 60 | Баланс: 280
+RandomBot победил! Выигрыш: 20 | Баланс: 100
+
+=== Раунд 10 ===
+AggressiveBot поставил 10 | Баланс: 160
+ConservativeBot поставил 30 | Баланс: 250
+RandomBot поставил 10 | Баланс: 90
+AggressiveBot взял: [('Spades', 12), ('Spades', 10)] | Очки: 20
+ConservativeBot взял: [('Hearts', 7), ('Clubs', 2), ('Hearts', 10)] | Очки: 19
+RandomBot взял: [('Diamonds', 5), ('Hearts', 2), ('Spades', 2), ('Diamonds', 6)] | Очки: 15
+Крупье взял: [('Clubs', 13), ('Hearts', 8)] | Очки: 18
+AggressiveBot победил! Выигрыш: 20 | Баланс: 180
+ConservativeBot победил! Выигрыш: 60 | Баланс: 310
+RandomBot проиграл! Потерял 10
