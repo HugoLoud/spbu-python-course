@@ -1,5 +1,5 @@
-from source.game import Game
-from source.player import AggressiveBot, ConservativeBot, RandomBot
+from project.blackjack.source.game import Game
+from project.blackjack.source.player import AggressiveBot, ConservativeBot, RandomBot
 
 if __name__ == "__main__":
     game = Game(max_rounds=10)
