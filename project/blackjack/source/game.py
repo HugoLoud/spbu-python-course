@@ -40,7 +40,7 @@ class Game:
             print(
                 f"{player.__class__.__name__} взял: {player.show_hand()} | Очки: {player.score}"
             )
-        
+
         self.dealer.play_turn(self.deck)
         print(f"Крупье взял: {self.dealer.show_hand()} | Очки: {self.dealer.score}")
 
