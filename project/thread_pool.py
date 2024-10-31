@@ -23,7 +23,9 @@ class ThreadPool:
             num_threads (int): The number of threads to create in the pool.
         """
         self.num_threads = num_threads
-        self.tasks: Queue[Tuple[Callable[[], Any], List[Any]]] = Queue()  # Type annotation for tasks
+        self.tasks: Queue[
+            Tuple[Callable[[], Any], List[Any]]
+        ] = Queue()  # Type annotation for tasks
         self.results: List[Any] = []
         self.threads: List[threading.Thread] = []
         self.shutdown_flag = threading.Event()
