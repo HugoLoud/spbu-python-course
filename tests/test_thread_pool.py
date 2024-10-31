@@ -25,7 +25,9 @@ def test_thread_pool_execution_with_results():
 
     # Enqueue multiple tasks and store their results in a shared dictionary
     for i in range(8):
-        pool.enqueue(lambda task_id=i: complex_task(task_id, result))  # Pass i as a default argument
+        pool.enqueue(
+            lambda task_id=i: complex_task(task_id, result)
+        )  # Pass i as a default argument
 
     pool.dispose()
 
@@ -74,7 +76,9 @@ def test_thread_pool_multiple_threads_working():
 
     # Enqueue tasks that simulate working at the same time
     for i in range(4):
-        pool.enqueue(lambda task_id=i: complex_task(task_id, result))  # Pass i as a default argument
+        pool.enqueue(
+            lambda task_id=i: complex_task(task_id, result)
+        )  # Pass i as a default argument
 
     start_time = time.time()
     pool.dispose()
