@@ -1,5 +1,5 @@
 import random
-from card import Card, Suit, Rank
+from project.blackjack.source.card import Card, Suit, Rank
 
 
 class Deck:
