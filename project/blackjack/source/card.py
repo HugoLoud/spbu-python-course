@@ -1,4 +1,5 @@
 class Suit:
+
     """Определяет масти карт."""
     HEARTS = "Hearts"
     DIAMONDS = "Diamonds"
@@ -8,6 +9,7 @@ class Suit:
 
 class Rank:
     """Определяет ранги карт от 1 до 13 (ACE до KING)."""
+
     ACE = 1
     TWO = 2
     THREE = 3
