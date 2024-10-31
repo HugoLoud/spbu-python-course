@@ -1,6 +1,6 @@
 import threading
-from queue import Queue
-from typing import Callable
+from queue import Queue, Empty
+from typing import Callable, List, Any, Tuple
 
 
 class ThreadPool:
@@ -9,9 +9,10 @@ class ThreadPool:
 
     Attributes:
         num_threads (int): Number of worker threads in the pool.
-        tasks (Queue): A queue storing tasks to be executed by threads.
-        shutdown_flag (Event): A flag indicating when the pool is shutting down.
+        tasks (Queue[Tuple[Callable[[], Any], List[Any]]]): A queue storing tasks to be executed by threads.
+        results (list): A list to store the results of the executed tasks.
         threads (list): A list of worker threads.
+        shutdown_flag (Event): A flag indicating when the pool is shutting down.
     """
 
     def __init__(self, num_threads: int):
@@ -22,8 +23,9 @@ class ThreadPool:
             num_threads (int): The number of threads to create in the pool.
         """
         self.num_threads = num_threads
-        self.tasks = Queue()
-        self.threads = []
+        self.tasks: Queue[Tuple[Callable[[], Any], List[Any]]] = Queue()  # Type annotation for tasks
+        self.results: List[Any] = []
+        self.threads: List[threading.Thread] = []
         self.shutdown_flag = threading.Event()
 
         # Create worker threads and start them
@@ -40,22 +42,27 @@ class ThreadPool:
         while not self.shutdown_flag.is_set():
             try:
                 # Get task from queue and execute it
-                task = self.tasks.get(timeout=1)
-                task()
-            except Queue.Empty:
-                # Timeout when queue is empty, no task to process
+                task, result_list = self.tasks.get(timeout=1)
+                result = task()  # Call the task function
+                result_list.append(result)  # Store the result in the provided list
+            except Empty:
                 continue
             finally:
                 self.tasks.task_done()
 
-    def enqueue(self, task: Callable):
+    def enqueue(self, task: Callable[[], Any]) -> List[Any]:
         """
         Enqueues a new task for execution by the thread pool.
 
         Args:
-            task (Callable): The task (function) to be executed by a worker thread.
+            task (Callable[[], Any]): The task (function) to be executed by a worker thread.
+
+        Returns:
+            List[Any]: A list to store the result of the task.
         """
-        self.tasks.put(task)
+        result_list: List[Any] = []
+        self.tasks.put((task, result_list))  # Store the task and a list for the result
+        return result_list  # Return the reference to the result list
 
     def dispose(self):
         """
