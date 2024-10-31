@@ -1,6 +1,6 @@
 from typing import List, Dict
-from deck import Deck
-from player import AggressiveBot, ConservativeBot, RandomBot, Dealer, Player
+from project.blackjack.source.deck import Deck
+from project.blackjack.source.player import AggressiveBot, ConservativeBot, RandomBot, Dealer, Player
 
 
 class Game:
