@@ -1,6 +1,7 @@
 import random
 from card import Card, Suit, Rank
 
+
 class Deck:
     """Класс представляет колоду карт и методы для её перетасовки и сброса."""
 
@@ -10,8 +11,11 @@ class Deck:
 
     def reset_deck(self):
         """Создаёт и перетасовывает новую полную колоду карт."""
-        self.cards = [Card(suit, rank) for suit in [Suit.HEARTS, Suit.DIAMONDS, Suit.CLUBS, Suit.SPADES]
-                      for rank in range(Rank.ACE, Rank.KING + 1)]
+        self.cards = [
+            Card(suit, rank)
+            for suit in [Suit.HEARTS, Suit.DIAMONDS, Suit.CLUBS, Suit.SPADES]
+            for rank in range(Rank.ACE, Rank.KING + 1)
+        ]
         self.shuffle_deck()
 
     def shuffle_deck(self):
