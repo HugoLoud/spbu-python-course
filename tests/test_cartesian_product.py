@@ -56,6 +56,7 @@ def test_cartesian_product_with_empty_lists():
     result = cartesian_product_sum(lists)
     assert result == 0
 
+
 def test_cartesian_product_with_non_integer_values():
     lists = [[1, 2], ["a", "b"], [3, 4]]
     try:
