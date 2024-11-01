@@ -49,3 +49,17 @@ def test_cartesian_product_with_large_list_sizes():
     # Result is pre-calculated manually to match expected sum of tuples.
     expected_result = 105300  # Pre-calculated manually.
     assert result == expected_result
+
+
+def test_cartesian_product_with_empty_lists():
+    lists = [[], [1, 2, 3], [4, 5]]
+    result = cartesian_product_sum(lists)
+    assert result == 0
+
+def test_cartesian_product_with_non_integer_values():
+    lists = [[1, 2], ["a", "b"], [3, 4]]
+    try:
+        result = cartesian_product_sum(lists)
+        assert False, "Expected a TypeError"
+    except TypeError:
+        pass
