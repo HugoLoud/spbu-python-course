@@ -15,8 +15,9 @@ def test_cache_caching():
     assert add(1, 2) == 3
     assert add(1, 2) == 3  # Result should be cached
     assert add(2, 3) == 5
+    assert add(3, 4) == 7  # This should cause the (1, 2) entry to be evicted
     assert add(1, 2) == 3  # Result should be recalculated (evicted from cache)
-    assert len(calls) == 3  # Should have 3 function calls
+    assert len(calls) == 4  # Should have 3 function calls
 
 
 def test_cache_no_caching():
