@@ -46,16 +46,20 @@ def smart_args(positional_support=False):
         signature = inspect.signature(func)
         parameters = signature.parameters
         defaults = {}
+        has_evaluated = False
+        has_isolated = False
 
         # Collect information about the function's parameters
         for name, param in parameters.items():
             default = param.default
-            if isinstance(default, Evaluated) and isinstance(default, Isolated):
-                raise ValueError(
-                    f"Cannot use Evaluated and Isolated together for parameter '{name}'."
-                )
+            if isinstance(default, Evaluated):
+                has_evaluated = True
+            if isinstance(default, Isolated):
+                has_isolated = True
+            if has_evaluated and has_isolated:
+                raise ValueError("Cannot use Evaluated and Isolated together in the same function.")
 
-            if not positional_support and param.kind == param.POSITIONAL_ONLY:
+            if not positional_support and param.kind in (param.POSITIONAL_ONLY, param.POSITIONAL_OR_KEYWORD):
                 if isinstance(default, (Evaluated, Isolated)):
                     raise ValueError(
                         f"Evaluated and Isolated are not supported for positional arguments '{name}'."
@@ -72,22 +76,23 @@ def smart_args(positional_support=False):
             :param kwargs: Keyword arguments
             :return: The result of the function call
             """
-            bound_args = signature.bind_partial(*args, **kwargs)
+            bound_args = signature.bind(*args, **kwargs)
             bound_args.apply_defaults()
 
-            for name, value in bound_args.arguments.items():
+            for name, param in signature.parameters.items():
                 default = defaults.get(name)
-                if isinstance(default, Evaluated):
-                    if name not in kwargs:
-                        # Compute the value at call time
+                if name in bound_args.arguments:
+                    if isinstance(default, Isolated):
+                        # Deep copy the provided argument
+                        bound_args.arguments[name] = copy.deepcopy(bound_args.arguments[name])
+                    # No need to process Evaluated, since argument was provided
+                else:
+                    if isinstance(default, Evaluated):
                         bound_args.arguments[name] = default.func()
-                elif isinstance(default, Isolated):
-                    if name not in kwargs:
+                    elif isinstance(default, Isolated):
                         raise TypeError(f"Argument '{name}' is required.")
-                    # Deep copy the argument
-                    bound_args.arguments[name] = copy.deepcopy(
-                        bound_args.arguments[name]
-                    )
+                    else:
+                        bound_args.arguments[name] = default  # Apply default value
 
             # Call the original function with processed arguments
             return func(*bound_args.args, **bound_args.kwargs)
