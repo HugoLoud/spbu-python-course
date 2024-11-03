@@ -28,6 +28,7 @@ def curry_explicit(func, arity):
             return func(*args)
         # Return a new function expecting the next argument
         return lambda x: curried(*(args + (x,)))
+
     return curried
 
 
@@ -58,4 +59,5 @@ def uncurry_explicit(func, arity):
         for arg in args:
             result = result(arg)
         return result
+
     return uncurried
