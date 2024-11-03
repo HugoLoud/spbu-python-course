@@ -57,9 +57,14 @@ def smart_args(positional_support=False):
             if isinstance(default, Isolated):
                 has_isolated = True
             if has_evaluated and has_isolated:
-                raise ValueError("Cannot use Evaluated and Isolated together in the same function.")
+                raise ValueError(
+                    "Cannot use Evaluated and Isolated together in the same function."
+                )
 
-            if not positional_support and param.kind in (param.POSITIONAL_ONLY, param.POSITIONAL_OR_KEYWORD):
+            if not positional_support and param.kind in (
+                param.POSITIONAL_ONLY,
+                param.POSITIONAL_OR_KEYWORD,
+            ):
                 if isinstance(default, (Evaluated, Isolated)):
                     raise ValueError(
                         f"Evaluated and Isolated are not supported for positional arguments '{name}'."
@@ -84,7 +89,9 @@ def smart_args(positional_support=False):
                 if name in bound_args.arguments:
                     if isinstance(default, Isolated):
                         # Deep copy the provided argument
-                        bound_args.arguments[name] = copy.deepcopy(bound_args.arguments[name])
+                        bound_args.arguments[name] = copy.deepcopy(
+                            bound_args.arguments[name]
+                        )
                     # No need to process Evaluated, since argument was provided
                 else:
                     if isinstance(default, Evaluated):
@@ -98,4 +105,5 @@ def smart_args(positional_support=False):
             return func(*bound_args.args, **bound_args.kwargs)
 
         return wrapper
+
     return decorator
