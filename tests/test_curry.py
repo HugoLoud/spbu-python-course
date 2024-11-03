@@ -6,6 +6,7 @@ def test_curry_positive_arity():
     """
     Test currying a function with positive arity.
     """
+
     def f(x, y, z):
         return x + y + z
 
@@ -22,6 +23,7 @@ def test_curry_zero_arity():
     """
     Test currying a function with arity 0.
     """
+
     def f():
         return 42
 
@@ -36,6 +38,7 @@ def test_curry_one_arity():
     """
     Test currying a function with arity 1.
     """
+
     def f(x):
         return x * 2
 
@@ -50,6 +53,7 @@ def test_curry_negative_arity():
     """
     Test handling of negative arity.
     """
+
     def f(x):
         return x
 
@@ -63,6 +67,7 @@ def test_curry_incorrect_arity():
     """
     Test handling of incorrect arity.
     """
+
     def f(x, y):
         return x + y
 
@@ -77,6 +82,7 @@ def test_curry_variable_arity_function():
     """
     Test currying a function with variable arity.
     """
+
     def f(*args):
         return sum(args)
 
