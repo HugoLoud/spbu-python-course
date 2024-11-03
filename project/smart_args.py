@@ -10,6 +10,7 @@ class Evaluated:
     Used in the @smart_args decorator to indicate arguments
     whose default value should be computed at function call time.
     """
+
     def __init__(self, func):
         """
         Initialize Evaluated.
@@ -26,6 +27,7 @@ class Isolated:
     Used in the @smart_args decorator to indicate arguments
     that should be copied before being used in the function.
     """
+
     pass
 
 
@@ -39,6 +41,7 @@ def smart_args(positional_support=False):
     :param positional_support: Support for positional arguments (False by default)
     :return: The decorator
     """
+
     def decorator(func):
         signature = inspect.signature(func)
         parameters = signature.parameters
@@ -48,11 +51,15 @@ def smart_args(positional_support=False):
         for name, param in parameters.items():
             default = param.default
             if isinstance(default, Evaluated) and isinstance(default, Isolated):
-                raise ValueError(f"Cannot use Evaluated and Isolated together for parameter '{name}'.")
+                raise ValueError(
+                    f"Cannot use Evaluated and Isolated together for parameter '{name}'."
+                )
 
             if not positional_support and param.kind == param.POSITIONAL_ONLY:
                 if isinstance(default, (Evaluated, Isolated)):
-                    raise ValueError(f"Evaluated and Isolated are not supported for positional arguments '{name}'.")
+                    raise ValueError(
+                        f"Evaluated and Isolated are not supported for positional arguments '{name}'."
+                    )
 
             defaults[name] = default
 
@@ -78,7 +85,9 @@ def smart_args(positional_support=False):
                     if name not in kwargs:
                         raise TypeError(f"Argument '{name}' is required.")
                     # Deep copy the argument
-                    bound_args.arguments[name] = copy.deepcopy(bound_args.arguments[name])
+                    bound_args.arguments[name] = copy.deepcopy(
+                        bound_args.arguments[name]
+                    )
 
             # Call the original function with processed arguments
             return func(*bound_args.args, **bound_args.kwargs)
