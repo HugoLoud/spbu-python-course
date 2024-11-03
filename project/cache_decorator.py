@@ -31,6 +31,7 @@ def cache_results(maxsize=0):
     :param maxsize: The maximum size of the cache (number of entries), default is 0 (caching disabled)
     :return: The decorator
     """
+
     def decorator(func):
         if maxsize <= 0:
             return func  # Caching not required
@@ -66,4 +67,5 @@ def cache_results(maxsize=0):
             return result
 
         return wrapper
+
     return decorator
