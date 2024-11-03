@@ -47,10 +47,10 @@ class ThreadPool:
                 task, result_list = self.tasks.get(timeout=1)
                 result = task()  # Call the task function
                 result_list.append(result)  # Store the result in the provided list
-            except Empty:
-                continue
             finally:
                 self.tasks.task_done()
+        except Empty:
+            continue
 
     def enqueue(self, task: Callable[[], Any]) -> List[Any]:
         """
