@@ -56,6 +56,8 @@ def uncurry_explicit(func, arity):
         if len(args) != arity:
             raise TypeError(f"Expected {arity} arguments, got {len(args)}.")
         result = func
+        if arity == 0:
+            return result()
         for arg in args:
             result = result(arg)
         return result
