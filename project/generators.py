@@ -23,7 +23,7 @@ def get_rgba(i: int) -> Tuple[int, int, int, int]:
     N_r = 256  # Number of possible R values (0-255)
     N_g = 256  # Number of possible G values (0-255)
     N_b = 256  # Number of possible B values (0-255)
-    N_a = 51   # Number of possible A values (0-100, even numbers only)
+    N_a = 51  # Number of possible A values (0-100, even numbers only)
 
     total_N = N_r * N_g * N_b * N_a  # Total number of RGBA combinations
 
@@ -60,7 +60,7 @@ def primes() -> Generator[int, None, None]:
         int: The next prime number in the sequence.
     """
     D = {}  # Dictionary for marking multiples
-    q = 2   # Starting integer to test for primality
+    q = 2  # Starting integer to test for primality
 
     while True:
         if q not in D:
