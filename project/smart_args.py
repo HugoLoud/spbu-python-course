@@ -59,7 +59,8 @@ def smart_args(positional_support=False):
                 )
 
             if not positional_support and param.kind in (
-                param.POSITIONAL_ONLY, param.POSITIONAL_OR_KEYWORD
+                param.POSITIONAL_ONLY,
+                param.POSITIONAL_OR_KEYWORD,
             ):
                 if isinstance(default, (Evaluated, Isolated)):
                     raise ValueError(
