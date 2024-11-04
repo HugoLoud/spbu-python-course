@@ -10,6 +10,7 @@ class Evaluated:
     Used in the @smart_args decorator to indicate arguments
     whose default value should be computed at function call time.
     """
+
     def __init__(self, func):
         """
         Initialize Evaluated.
@@ -53,9 +54,13 @@ def smart_args(positional_support=False):
 
             # Check if both Evaluated and Isolated are used together for the same parameter
             if isinstance(default, Evaluated) and isinstance(default, Isolated):
-                raise ValueError(f"Cannot use Evaluated and Isolated together for parameter '{name}'.")
+                raise ValueError(
+                    f"Cannot use Evaluated and Isolated together for parameter '{name}'."
+                )
 
-            if not positional_support and param.kind in (param.POSITIONAL_ONLY, param.POSITIONAL_OR_KEYWORD):
+            if not positional_support and param.kind in (
+                param.POSITIONAL_ONLY, param.POSITIONAL_OR_KEYWORD
+            ):
                 if isinstance(default, (Evaluated, Isolated)):
                     raise ValueError(
                         f"Evaluated and Isolated are not supported for positional arguments '{name}'."
@@ -83,7 +88,9 @@ def smart_args(positional_support=False):
                     # Argument is provided by the user
                     if isinstance(default, Isolated):
                         # Deep copy the provided argument
-                        bound_args.arguments[name] = copy.deepcopy(bound_args.arguments[name])
+                        bound_args.arguments[name] = copy.deepcopy(
+                            bound_args.arguments[name]
+                        )
                     # If not Isolated, leave the argument as is
                 else:
                     # Argument not provided; handle defaults
