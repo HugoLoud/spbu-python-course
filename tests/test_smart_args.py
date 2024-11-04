@@ -57,18 +57,15 @@ def test_smart_args_combined_evaluated_isolated_error():
     """
     Test error when using Evaluated and Isolated together on the same parameter.
     """
-    with pytest.raises(ValueError):
-        @smart_args()
-        def func(*, x=Evaluated(lambda: 1) and Isolated()):
-            pass
 
-    # Alternatively, create a class that inherits from both Evaluated and Isolated
+      # Create a class that inherits from both Evaluated and Isolated
     class EvalAndIso(Evaluated, Isolated):
-        pass
+        def __init__(self, func):
+            Evaluated.__init__(self, func)
 
     with pytest.raises(ValueError):
         @smart_args()
-        def func_with_both(*, x=EvalAndIso(lambda: 1)):
+        def func(*, x=EvalAndIso(lambda: 1)):
             pass
 
 
