@@ -10,13 +10,14 @@ class Evaluated:
     Used in the @smart_args decorator to indicate arguments
     whose default value should be computed at function call time.
     """
-
     def __init__(self, func):
         """
         Initialize Evaluated.
 
         :param func: A zero-argument function that computes the default value
         """
+        if not callable(func):
+            raise TypeError("Evaluated expects a callable with no arguments.")
         self.func = func
 
 
@@ -47,7 +48,6 @@ def smart_args(positional_support=False):
         parameters = signature.parameters
         defaults = {}
 
-        # Collect information about the function's parameters
         for name, param in parameters.items():
             default = param.default
 
@@ -72,27 +72,31 @@ def smart_args(positional_support=False):
             :param kwargs: Keyword arguments
             :return: The result of the function call
             """
-            bound_args = signature.bind(*args, **kwargs)
-            bound_args.apply_defaults()
 
+            bound_args = signature.bind_partial(*args, **kwargs)
+            # Do not apply_defaults() to determine which arguments were provided
+            # Apply defaults manually
             for name, param in signature.parameters.items():
                 default = defaults.get(name)
+
                 if name in bound_args.arguments:
+                    # Argument is provided by the user
                     if isinstance(default, Isolated):
                         # Deep copy the provided argument
-                        bound_args.arguments[name] = copy.deepcopy(
-                            bound_args.arguments[name]
-                        )
-                    # No need to process Evaluated, since argument was provided
+                        bound_args.arguments[name] = copy.deepcopy(bound_args.arguments[name])
+                    # If not Isolated, leave the argument as is
                 else:
+                    # Argument not provided; handle defaults
                     if isinstance(default, Evaluated):
+                        # Compute the default value
                         bound_args.arguments[name] = default.func()
                     elif isinstance(default, Isolated):
+                        # Argument is required
                         raise TypeError(f"Argument '{name}' is required.")
                     else:
-                        bound_args.arguments[name] = default  # Apply default value
+                        # Use the regular default value
+                        bound_args.arguments[name] = default
 
-            # Call the original function with processed arguments
             return func(*bound_args.args, **bound_args.kwargs)
 
         return wrapper
