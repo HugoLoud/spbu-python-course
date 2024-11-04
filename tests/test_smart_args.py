@@ -7,6 +7,7 @@ def test_smart_args_evaluated():
     """
     Test using Evaluated for deferred computation of default values.
     """
+
     def get_random_number():
         return random.randint(0, 100)
 
@@ -27,22 +28,24 @@ def test_smart_args_isolated():
     """
     Test using Isolated for deep copying arguments.
     """
+
     @smart_args()
     def check_isolation(*, d=Isolated()):
-        d['a'] = 0
+        d["a"] = 0
         return d
 
-    no_mutable = {'a': 10}
+    no_mutable = {"a": 10}
     result = check_isolation(d=no_mutable)
 
-    assert result == {'a': 0}
-    assert no_mutable == {'a': 10}  # Original object should not be modified
+    assert result == {"a": 0}
+    assert no_mutable == {"a": 10}  # Original object should not be modified
 
 
 def test_smart_args_isolated_argument_required():
     """
     Test that an argument with Isolated is required.
     """
+
     @smart_args()
     def check_isolation(*, d=Isolated()):
         return d
@@ -56,12 +59,13 @@ def test_smart_args_combined_evaluated_isolated_error():
     Test error when using Evaluated and Isolated together on the same parameter.
     """
 
-      # Create a class that inherits from both Evaluated and Isolated
+    # Create a class that inherits from both Evaluated and Isolated
     class EvalAndIso(Evaluated, Isolated):
         def __init__(self, func):
             Evaluated.__init__(self, func)
 
     with pytest.raises(ValueError):
+
         @smart_args()
         def func(*, x=EvalAndIso(lambda: 1)):
             pass
@@ -72,6 +76,7 @@ def test_smart_args_positional_argument_error():
     Test error when using Evaluated or Isolated with positional arguments.
     """
     with pytest.raises(ValueError):
+
         @smart_args()
         def func(x=Evaluated(lambda: 1)):
             pass
@@ -81,6 +86,7 @@ def test_smart_args_regular_default_value():
     """
     Test working with regular default values.
     """
+
     @smart_args()
     def func(*, x=10):
         return x
@@ -93,6 +99,7 @@ def test_smart_args_positional_support():
     """
     Test support for positional arguments when positional_support is enabled.
     """
+
     @smart_args(positional_support=True)
     def test_func(a=Evaluated(lambda: 10), b=Isolated()):
         b.append(a)
@@ -111,6 +118,7 @@ def test_smart_args_positional_evaluated():
     """
     Test using Evaluated with positional arguments.
     """
+
     @smart_args(positional_support=True)
     def func(a=Evaluated(lambda: 5)):
         return a
@@ -123,6 +131,7 @@ def test_smart_args_evaluated_not_overwritten():
     """
     Test that provided arguments are not overwritten by defaults.
     """
+
     def get_random_number():
         return random.randint(0, 100)
 
@@ -142,6 +151,7 @@ def test_smart_args_isolated_with_positional_support():
     """
     Test using Isolated with positional arguments when positional_support is enabled.
     """
+
     @smart_args(positional_support=True)
     def func_list(b=Isolated()):
         b.append(100)
