@@ -33,11 +33,14 @@ def test_get_prime(prime_function):
     assert f(6) == 13
 
 
-@pytest.mark.parametrize("sequence", [
-    ([1, 1, 2, 3, 5]),
-    ([2, 2, 3]),
-    ([3, 3, 3]),
-])
+@pytest.mark.parametrize(
+    "sequence",
+    [
+        ([1, 1, 2, 3, 5]),
+        ([2, 2, 3]),
+        ([3, 3, 3]),
+    ],
+)
 def test_non_decreasing_sequence(prime_function, sequence):
     """
     Tests that non-decreasing sequences of indices are accepted.
@@ -47,11 +50,14 @@ def test_non_decreasing_sequence(prime_function, sequence):
         f(k)  # Should not raise an error
 
 
-@pytest.mark.parametrize("sequence", [
-    ([3, 2]),
-    ([5, 4, 6]),
-    ([10, 9]),
-])
+@pytest.mark.parametrize(
+    "sequence",
+    [
+        ([3, 2]),
+        ([5, 4, 6]),
+        ([10, 9]),
+    ],
+)
 def test_decreasing_sequence(prime_function, sequence):
     """
     Tests that decreasing sequences of indices raise ValueError.
