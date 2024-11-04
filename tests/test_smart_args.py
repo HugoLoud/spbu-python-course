@@ -1,5 +1,3 @@
-# tests/test_smart_args.py
-
 import pytest
 from project.smart_args import smart_args, Evaluated, Isolated
 import random
