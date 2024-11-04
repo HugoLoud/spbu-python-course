@@ -46,25 +46,16 @@ def smart_args(positional_support=False):
         signature = inspect.signature(func)
         parameters = signature.parameters
         defaults = {}
-        has_evaluated = False
-        has_isolated = False
 
         # Collect information about the function's parameters
         for name, param in parameters.items():
             default = param.default
-            if isinstance(default, Evaluated):
-                has_evaluated = True
-            if isinstance(default, Isolated):
-                has_isolated = True
-            if has_evaluated and has_isolated:
-                raise ValueError(
-                    "Cannot use Evaluated and Isolated together in the same function."
-                )
 
-            if not positional_support and param.kind in (
-                param.POSITIONAL_ONLY,
-                param.POSITIONAL_OR_KEYWORD,
-            ):
+            # Check if both Evaluated and Isolated are used together for the same parameter
+            if isinstance(default, Evaluated) and isinstance(default, Isolated):
+                raise ValueError(f"Cannot use Evaluated and Isolated together for parameter '{name}'.")
+
+            if not positional_support and param.kind in (param.POSITIONAL_ONLY, param.POSITIONAL_OR_KEYWORD):
                 if isinstance(default, (Evaluated, Isolated)):
                     raise ValueError(
                         f"Evaluated and Isolated are not supported for positional arguments '{name}'."
