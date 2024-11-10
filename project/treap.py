@@ -15,7 +15,7 @@ class Node:
         right: Правый дочерний узел.
     """
 
-    def __init__(self, key, value):
+    def __init__(self, key: int, value: str) -> None:
         self.key = key
         self.value = value
         self.priority = random.randint(0, 100)
@@ -23,7 +23,7 @@ class Node:
         self.right: Optional[Node] = None
 
 
-class Treap(MutableMapping):
+class Treap:
     """
     Реализация декартова дерева (Treap) с поддержкой словарного интерфейса.
 
@@ -36,11 +36,11 @@ class Treap(MutableMapping):
         __reversed__(self): Обратный обход ключей.
     """
 
-    def __init__(self):
+    def __init__(self) -> None:
         self.root: Optional[Node] = None
 
     def _split(
-        self, node: Optional[Node], key
+        self, node: Optional[Node], key: int
     ) -> Tuple[Optional[Node], Optional[Node]]:
         """
         Разделяет дерево на две части: те, у которых ключ меньше key и те, у которых больше или равен key.
@@ -60,7 +60,7 @@ class Treap(MutableMapping):
         """
         Объединяет два дерева с сохранением свойств кучи.
         """
-        if not left or not right:
+        if left is None or right is None:
             return left or right
         elif left.priority > right.priority:
             left.right = self._merge(left.right, right)
@@ -171,6 +171,8 @@ class Treap(MutableMapping):
         """
         Правый поворот для поддержания свойств дерева.
         """
+        if node.left is None:
+            return node
         new_root = node.left
         node.left = new_root.right
         new_root.right = node
@@ -180,6 +182,8 @@ class Treap(MutableMapping):
         """
         Левый поворот для поддержания свойств дерева.
         """
+        if node.right is None:
+            return node
         new_root = node.right
         node.right = new_root.left
         new_root.left = node
