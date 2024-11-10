@@ -45,6 +45,9 @@ class Treap:
         """
         Разделяет дерево на две части: те, у которых ключ меньше key и те, у которых больше или равен key.
         """
+        left: Optional[Node] = None
+        right: Optional[Node] = None
+        
         if node is None:
             return None, None
         elif key > node.key:
