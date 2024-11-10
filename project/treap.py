@@ -47,7 +47,7 @@ class Treap:
         """
         left: Optional[Node] = None
         right: Optional[Node] = None
-        
+
         if node is None:
             return None, None
         elif key > node.key:
