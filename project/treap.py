@@ -2,10 +2,11 @@ from collections.abc import MutableMapping
 from typing import Optional, Iterator, Tuple
 import random
 
+
 class Node:
     """
     Узел для декартова дерева.
-    
+
     Attributes:
         key: Ключ узла.
         value: Значение узла.
@@ -13,6 +14,7 @@ class Node:
         left: Левый дочерний узел.
         right: Правый дочерний узел.
     """
+
     def __init__(self, key, value):
         self.key = key
         self.value = value
@@ -20,10 +22,11 @@ class Node:
         self.left: Optional[Node] = None
         self.right: Optional[Node] = None
 
+
 class Treap(MutableMapping):
     """
     Реализация декартова дерева (Treap) с поддержкой словарного интерфейса.
-    
+
     Methods:
         __setitem__(self, key, value): Вставка или обновление значения по ключу.
         __getitem__(self, key): Получение значения по ключу.
@@ -35,8 +38,10 @@ class Treap(MutableMapping):
 
     def __init__(self):
         self.root: Optional[Node] = None
-    
-    def _split(self, node: Optional[Node], key) -> Tuple[Optional[Node], Optional[Node]]:
+
+    def _split(
+        self, node: Optional[Node], key
+    ) -> Tuple[Optional[Node], Optional[Node]]:
         """
         Разделяет дерево на две части: те, у которых ключ меньше key и те, у которых больше или равен key.
         """
@@ -50,7 +55,7 @@ class Treap(MutableMapping):
             node.left, right = self._split(node.left, key)
             node.left = right
             return left, node
-    
+
     def _merge(self, left: Optional[Node], right: Optional[Node]) -> Optional[Node]:
         """
         Объединяет два дерева с сохранением свойств кучи.
@@ -68,6 +73,7 @@ class Treap(MutableMapping):
         """
         Вставка или обновление значения по ключу.
         """
+
         def insert(node: Optional[Node], key, value) -> Node:
             if node is None:
                 return Node(key, value)
@@ -91,16 +97,17 @@ class Treap(MutableMapping):
         """
         node = self._find(self.root, key)
         if node is None:
-            raise KeyError(f'Key {key} not found')
+            raise KeyError(f"Key {key} not found")
         return node.value
 
     def __delitem__(self, key):
         """
         Удаление элемента по ключу.
         """
+
         def delete(node: Optional[Node], key) -> Optional[Node]:
             if node is None:
-                raise KeyError(f'Key {key} not found')
+                raise KeyError(f"Key {key} not found")
             if key < node.key:
                 node.left = delete(node.left, key)
             elif key > node.key:
