@@ -1,4 +1,10 @@
 black
+jupyter
+matplotlib
 mypy
+nbformat
+pandas
+plotly
 pre-commit
 pytest
+seaborn
