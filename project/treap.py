@@ -88,7 +88,7 @@ class Treap:
             right.left = self._merge(left, right.left)
             return right
 
-    def __setitem__(self, key: int, value: str)-> None:
+    def __setitem__(self, key: int, value: str) -> None:
         """
         Inserts or updates a node with the given key and value.
 
@@ -188,13 +188,13 @@ class Treap:
 
     def _inorder(self, node: Optional[Node]) -> Iterator[int]:
         """
-        Performs an in-order traversal of the treap.
+            Performs an in-order traversal of the treap.
 
-    Args:
-        node (Optional[Node]): The root node of the current subtree.
+        Args:
+            node (Optional[Node]): The root node of the current subtree.
 
-    Yields:
-        int: Keys in ascending order.
+        Yields:
+            int: Keys in ascending order.
         """
         if node is not None:
             yield from self._inorder(node.left)
