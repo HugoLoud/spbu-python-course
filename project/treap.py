@@ -5,14 +5,14 @@ import random
 
 class Node:
     """
-    Узел для декартова дерева.
+    Node for the treap (Cartesian tree).
 
     Attributes:
-        key: Ключ узла.
-        value: Значение узла.
-        priority: Приоритет узла для поддержания кучи.
-        left: Левый дочерний узел.
-        right: Правый дочерний узел.
+        key: The key of the node.
+        value: The value of the node.
+        priority: The priority of the node for maintaining heap properties.
+        left: The left child node.
+        right: The right child node.
     """
 
     def __init__(self, key: int, value: str) -> None:
@@ -25,15 +25,17 @@ class Node:
 
 class Treap:
     """
-    Реализация декартова дерева (Treap) с поддержкой словарного интерфейса.
+    Implementation of a treap (Cartesian tree) with dictionary-like interface.
 
     Methods:
-        __setitem__(self, key, value): Вставка или обновление значения по ключу.
-        __getitem__(self, key): Получение значения по ключу.
-        __delitem__(self, key): Удаление элемента по ключу.
-        __contains__(self, key): Проверка наличия ключа.
-        __iter__(self): Прямой обход ключей.
-        __reversed__(self): Обратный обход ключей.
+        __setitem__(self, key, value): Insert or update a value by key.
+        __getitem__(self, key): Retrieve a value by key.
+        __delitem__(self, key): Remove an item by key.
+        __contains__(self, key): Check if a key exists in the treap.
+        __iter__(self): Iterate through keys in ascending order.
+        __reversed__(self): Reverse iteration over keys.
+        split(self, root, key): Split the treap into two parts by a key.
+        merge(self, left, right): Merge two treaps.
     """
 
     def __init__(self) -> None:
@@ -43,7 +45,14 @@ class Treap:
         self, node: Optional[Node], key: int
     ) -> Tuple[Optional[Node], Optional[Node]]:
         """
-        Разделяет дерево на две части: те, у которых ключ меньше key и те, у которых больше или равен key.
+        Splits the treap into two subtrees.
+
+        Args:
+            node: The root node of the treap to split.
+            key: The key to split by.
+
+        Returns:
+            A tuple containing two subtrees.
         """
         left: Optional[Node] = None
         right: Optional[Node] = None
@@ -61,7 +70,14 @@ class Treap:
 
     def _merge(self, left: Optional[Node], right: Optional[Node]) -> Optional[Node]:
         """
-        Объединяет два дерева с сохранением свойств кучи.
+        Merges two treaps into one.
+
+        Args:
+            left: The root of the left treap.
+            right: The root of the right treap.
+
+        Returns:
+            The root of the merged treap.
         """
         if left is None or right is None:
             return left or right
@@ -72,12 +88,16 @@ class Treap:
             right.left = self._merge(left, right.left)
             return right
 
-    def __setitem__(self, key, value):
+    def __setitem__(self, key: int, value: str)-> None:
         """
-        Вставка или обновление значения по ключу.
+        Inserts or updates a node with the given key and value.
+
+        Args:
+            key (int): The key of the node.
+            value (str): The value of the node.
         """
 
-        def insert(node: Optional[Node], key, value) -> Node:
+        def insert(node: Optional[Node], key: int, value: str) -> Node:
             if node is None:
                 return Node(key, value)
             if key == node.key:
@@ -94,9 +114,18 @@ class Treap:
 
         self.root = insert(self.root, key, value)
 
-    def __getitem__(self, key):
+    def __getitem__(self, key: int) -> str:
         """
-        Получение значения по ключу.
+        Retrieves the value associated with a key.
+
+        Args:
+            key (int): The key to retrieve the value for.
+
+        Returns:
+            str: The value associated with the key.
+
+        Raises:
+            KeyError: If the key is not found in the treap.
         """
         node = self._find(self.root, key)
         if node is None:
@@ -105,7 +134,13 @@ class Treap:
 
     def __delitem__(self, key):
         """
-        Удаление элемента по ключу.
+        Removes a key-value pair from the treap.
+
+        Args:
+            key (int): The key to remove.
+
+        Raises:
+            KeyError: If the key does not exist.
         """
 
         def delete(node: Optional[Node], key) -> Optional[Node]:
@@ -123,34 +158,58 @@ class Treap:
 
     def __contains__(self, key) -> bool:
         """
-        Проверка наличия ключа в дереве.
+        Checks whether a key exists in the treap.
+
+        Args:
+            key (int): The key to check.
+
+        Returns:
+            bool: True if the key exists, False otherwise.
         """
         return self._find(self.root, key) is not None
 
-    def __iter__(self) -> Iterator:
+    def __iter__(self) -> Iterator[int]:
         """
-        Прямой обход дерева.
+        Performs an in-order traversal of the treap.
+
+        Returns:
+            Iterator[int]: Iterator over the keys in ascending order.
         """
         yield from self._inorder(self.root)
 
-    def __reversed__(self) -> Iterator:
+    def __reversed__(self) -> Iterator[int]:
         """
-        Обратный обход дерева.
+        Performs a reverse in-order traversal of the treap.
+
+        Returns:
+            Iterator[int]: Iterator over the keys in descending order.
         """
         yield from self._reverse_inorder(self.root)
 
-    def _inorder(self, node: Optional[Node]) -> Iterator:
+    def _inorder(self, node: Optional[Node]) -> Iterator[int]:
         """
-        Внутренний метод для прямого обхода.
+        Performs an in-order traversal of the treap.
+
+    Args:
+        node (Optional[Node]): The root node of the current subtree.
+
+    Yields:
+        int: Keys in ascending order.
         """
         if node is not None:
             yield from self._inorder(node.left)
             yield node.key
             yield from self._inorder(node.right)
 
-    def _reverse_inorder(self, node: Optional[Node]) -> Iterator:
+    def _reverse_inorder(self, node: Optional[Node]) -> Iterator[int]:
         """
-        Внутренний метод для обратного обхода.
+        Performs a reverse in-order traversal of the treap.
+
+        Args:
+            node (Optional[Node]): The root node of the current subtree.
+
+        Yields:
+            int: Keys in descending order.
         """
         if node is not None:
             yield from self._reverse_inorder(node.right)
@@ -159,7 +218,14 @@ class Treap:
 
     def _find(self, node: Optional[Node], key) -> Optional[Node]:
         """
-        Поиск узла по ключу.
+        Searches for a node with the specified key in the treap.
+
+        Args:
+            node (Optional[Node]): The root node of the current subtree.
+            key (int): The key to search for.
+
+        Returns:
+            Optional[Node]: The node with the specified key, or None if not found.
         """
         while node is not None:
             if key < node.key:
@@ -172,7 +238,13 @@ class Treap:
 
     def _rotate_right(self, node: Node) -> Node:
         """
-        Правый поворот для поддержания свойств дерева.
+        Performs a right rotation to restore heap properties.
+
+        Args:
+            node (Node): The root node to rotate.
+
+        Returns:
+            Node: The new root node after the rotation.
         """
         if node.left is None:
             return node
@@ -183,7 +255,13 @@ class Treap:
 
     def _rotate_left(self, node: Node) -> Node:
         """
-        Левый поворот для поддержания свойств дерева.
+        Performs a left rotation to restore heap properties.
+
+        Args:
+            node (Node): The root node to rotate.
+
+        Returns:
+            Node: The new root node after the rotation.
         """
         if node.right is None:
             return node
@@ -194,6 +272,9 @@ class Treap:
 
     def __len__(self) -> int:
         """
-        Подсчет количества узлов.
+        Returns the number of nodes in the treap.
+
+        Returns:
+            int: The number of key-value pairs.
         """
         return sum(1 for _ in self)
