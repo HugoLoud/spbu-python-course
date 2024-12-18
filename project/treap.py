@@ -132,18 +132,21 @@ class Treap:
             raise KeyError(f"Key {key} not found")
         return node.value
 
-    def __delitem__(self, key):
+    def __delitem__(self, key: int) -> None:
         """
         Removes a key-value pair from the treap.
 
         Args:
             key (int): The key to remove.
 
+        Returns:
+            None
+
         Raises:
             KeyError: If the key does not exist.
         """
 
-        def delete(node: Optional[Node], key) -> Optional[Node]:
+        def delete(node: Optional[Node], key: int) -> Optional[Node]:
             if node is None:
                 raise KeyError(f"Key {key} not found")
             if key < node.key:
@@ -156,7 +159,7 @@ class Treap:
 
         self.root = delete(self.root, key)
 
-    def __contains__(self, key) -> bool:
+    def __contains__(self, key: int) -> bool:
         """
         Checks whether a key exists in the treap.
 
@@ -216,7 +219,7 @@ class Treap:
             yield node.key
             yield from self._reverse_inorder(node.left)
 
-    def _find(self, node: Optional[Node], key) -> Optional[Node]:
+    def _find(self, node: Optional[Node], key: int) -> Optional[Node]:
         """
         Searches for a node with the specified key in the treap.
 
